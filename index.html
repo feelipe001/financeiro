@@ -1,408 +1,296 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle Fácil - Gestor de Finanças Pessoais</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero-image {
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrçaFácil - Gestor de Finanças Pessoais</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .fade-in {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Header -->
-    <header class="bg-[#1E3A8A] text-white fixed w-full z-10 shadow-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <i class="fas fa-wallet text-2xl mr-2"></i>
-                <h1 class="text-2xl font-bold">Controle Fácil</h1>
-            </div>
-            <nav class="hidden md:block">
-                <ul class="flex space-x-8">
-                    <li><a href="#home" class="hover:text-[#10B981] hover:underline transition duration-300">Home</a></li>
-                    <li><a href="#features" class="hover:text-[#10B981] hover:underline transition duration-300">Funcionalidades</a></li>
-                    <li><a href="#pricing" class="hover:text-[#10B981] hover:underline transition duration-300">Preços</a></li>
-                    <li><a href="#contact" class="hover:text-[#10B981] hover:underline transition duration-300">Contato</a></li>
-                </ul>
-            </nav>
-            <button class="md:hidden text-xl">
-                <i class="fas fa-bars"></i>
-            </button>
+<body class="bg-white">
+  <!-- Header -->
+  <header class="bg-[#1E3A8A] text-white fixed w-full z-50 shadow-md">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <h1 class="text-2xl font-bold">OrçaFácil</h1>
+      </div>
+      <nav class="hidden md:block">
+        <ul class="flex space-x-8">
+          <li><a href="#" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition-all">Home</a></li>
+          <li><a href="#features" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition-all">Funcionalidades</a></li>
+          <li><a href="#pricing" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition-all">Preços</a></li>
+          <li><a href="#contact" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition-all">Contato</a></li>
+        </ul>
+      </nav>
+      <button class="md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 px-6 bg-gradient-to-b from-[#1E3A8A]/10 to-white">
+    <div class="container mx-auto flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-12 md:mb-0 fade-in">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-6">Organize suas finanças com o OrçaFácil!</h1>
+        <p class="text-lg text-gray-600 mb-8">Registre gastos, anexe comprovantes, adicione notas e acompanhe seu orçamento em tempo real.</p>
+        <button class="bg-[#10B981] hover:bg-[#0D9F6E] text-white font-medium py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all">
+          Teste Grátis por 14 Dias
+        </button>
+      </div>
+      <div class="md:w-1/2 fade-in">
+        <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="App illustration" class="w-full max-w-md mx-auto">
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 px-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center text-[#1E3A8A] mb-16">Por que usar o OrçaFácil?</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-all fade-in">
+          <div class="bg-[#10B981]/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1E3A8A] mb-2">Anexe Comprovantes</h3>
+          <p class="text-gray-600">Faça upload de recibos em PDF, JPG ou PNG para organizar seus gastos.</p>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 px-6 bg-gradient-to-r from-blue-50 to-white">
-        <div class="container mx-auto flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
-                <h1 class="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-6 leading-tight">
-                    Controle suas finanças de forma fácil e prática!
-                </h1>
-                <p class="text-lg text-gray-600 mb-8">
-                    Registre gastos, anexe comprovantes e acompanhe seu orçamento em tempo real.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="bg-[#10B981] hover:bg-[#0E9F72] text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                        Experimente Grátis por 14 Dias
-                    </button>
-                    <button class="border-2 border-[#1E3A8A] text-[#1E3A8A] font-semibold py-3 px-8 rounded-lg hover:bg-[#1E3A8A] hover:text-white transition duration-300">
-                        Saiba Mais
-                    </button>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center hero-image">
-                <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Financial control illustration" class="w-full max-w-md">
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1E3A8A] mb-16 fade-in">
-                Por que escolher o Controle Fácil?
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 fade-in">
-                    <div class="bg-[#10B981] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-file-upload text-3xl text-[#10B981]"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-center text-[#1E3A8A] mb-3">Anexe Comprovantes</h3>
-                    <p class="text-gray-600 text-center">
-                        Faça upload de recibos e notas fiscais para organizar seus gastos de forma completa.
-                    </p>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 fade-in">
-                    <div class="bg-[#10B981] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-sticky-note text-3xl text-[#10B981]"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-center text-[#1E3A8A] mb-3">Adicione Notas</h3>
-                    <p class="text-gray-600 text-center">
-                        Inclua observações personalizadas para cada transação e nunca esqueça detalhes importantes.
-                    </p>
-                </div>
-                
-                <!-- Feature 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 fade-in">
-                    <div class="bg-[#10B981] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-chart-pie text-3xl text-[#10B981]"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-center text-[#1E3A8A] mb-3">Relatórios Visuais</h3>
-                    <p class="text-gray-600 text-center">
-                        Visualize seus gastos e receitas com gráficos intuitivos e relatórios detalhados.
-                    </p>
-                </div>
-                
-                <!-- Feature 4 -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 fade-in">
-                    <div class="bg-[#10B981] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-lock text-3xl text-[#10B981]"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-center text-[#1E3A8A] mb-3">Fácil e Seguro</h3>
-                    <p class="text-gray-600 text-center">
-                        Interface intuitiva com criptografia avançada para proteger seus dados financeiros.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 px-6 bg-gray-50">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1E3A8A] mb-16 fade-in">
-                Escolha o plano ideal para você
-            </h2>
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Free Plan -->
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 fade-in">
-                    <div class="text-center mb-6">
-                        <h3 class="text-2xl font-semibold text-[#1E3A8A] mb-2">Teste Grátis</h3>
-                        <p class="text-gray-500">14 dias gratuitos</p>
-                    </div>
-                    <div class="mb-8">
-                        <p class="text-4xl font-bold text-center text-[#1E3A8A] mb-2">R$0</p>
-                        <p class="text-gray-500 text-center">para sempre</p>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#10B981] mr-2"></i>
-                            <span>Até 50 transações</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#10B981] mr-2"></i>
-                            <span>5 comprovantes por mês</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#10B981] mr-2"></i>
-                            <span>Relatórios simples</span>
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-times-circle mr-2"></i>
-                            <span>Exportação de dados</span>
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-times-circle mr-2"></i>
-                            <span>Suporte prioritário</span>
-                        </li>
-                    </ul>
-                    <button class="w-full bg-[#1E3A8A] hover:bg-[#142B66] text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
-                        Começar Teste Grátis
-                    </button>
-                </div>
-                
-                <!-- Premium Plan -->
-                <div class="bg-white p-8 rounded-xl shadow-xl border-2 border-[#10B981] transform scale-105 hover:scale-110 transition duration-300 fade-in relative">
-                    <div class="absolute top-0 right-0 bg-[#10B981] text-white px-4 py-1 rounded-bl-lg rounded-tr-lg font-semibold">
-                        Popular
-                    </div>
-                    <div class="text-center mb-6">
-                        <h3 class="text-2xl font-semibold text-[#1E3A8A] mb-2">Premium</h3>
-                        <p class="text-gray-500">Plano completo</p>
-                    </div>
-                    <div class="mb-8">
-                        <p class="text-4xl font-bold text-center text-[#1E3A8A] mb-2">R$19,90</p>
-                        <p class="text-gray-500 text-center">por mês</p>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#10B981] mr-2"></i>
-                            <span>Transações ilimitadas</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#10B981] mr-2"></i>
-                            <span>Comprovantes ilimitados</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#10B981] mr-2"></i>
-                            <span>Relatórios avançados</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#10B981] mr-2"></i>
-                            <span>Exportação de dados</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#10B981] mr-2"></i>
-                            <span>Suporte prioritário</span>
-                        </li>
-                    </ul>
-                    <button class="w-full bg-[#10B981] hover:bg-[#0E9F72] text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
-                        Assinar Premium
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1E3A8A] mb-16 fade-in">
-                O que nossos usuários dizem
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 fade-in">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full bg-[#1E3A8A] flex items-center justify-center text-white text-2xl font-bold mr-4">A</div>
-                        <div>
-                            <h4 class="font-semibold text-[#1E3A8A]">Ana S.</h4>
-                            <p class="text-gray-500">28 anos</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic">
-                        "O Controle Fácil me ajudou a organizar meus gastos e economizar 20% do meu salário em apenas 3 meses. A função de anexar comprovantes é incrível!"
-                    </p>
-                    <div class="flex mt-4 text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 fade-in">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full bg-[#1E3A8A] flex items-center justify-center text-white text-2xl font-bold mr-4">R</div>
-                        <div>
-                            <h4 class="font-semibold text-[#1E3A8A]">Ricardo M.</h4>
-                            <p class="text-gray-500">35 anos</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic">
-                        "Como freelancer, preciso controlar cada centavo. O Controle Fácil me permite categorizar despesas e planejar meu orçamento com facilidade."
-                    </p>
-                    <div class="flex mt-4 text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 fade-in">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full bg-[#1E3A8A] flex items-center justify-center text-white text-2xl font-bold mr-4">M</div>
-                        <div>
-                            <h4 class="font-semibold text-[#1E3A8A]">Mariana L.</h4>
-                            <p class="text-gray-500">42 anos</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic">
-                        "Finalmente encontrei um app que realmente entende minhas necessidades financeiras. Os relatórios mensais me ajudaram a identificar gastos desnecessários."
-                    </p>
-                    <div class="flex mt-4 text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-16 px-6 bg-[#1E3A8A] text-white">
-        <div class="container mx-auto text-center fade-in">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Pronto para transformar suas finanças?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Junte-se a milhares de usuários que já estão no controle de seu dinheiro.</p>
-            <button class="bg-[#10B981] hover:bg-[#0E9F72] text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                Comece Agora - 14 Dias Grátis
-            </button>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-[#1E3A8A] text-white py-12 px-6">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-wallet text-2xl mr-2"></i>
-                        <h3 class="text-xl font-bold">Controle Fácil</h3>
-                    </div>
-                    <p class="text-gray-300">
-                        O aplicativo que simplifica sua vida financeira e ajuda você a alcançar seus objetivos.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Sobre</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Termos de Uso</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Política de Privacidade</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Contato</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2 text-gray-300"></i>
-                            <span class="text-gray-300">contato@controlefacil.com</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone mr-2 text-gray-300"></i>
-                            <span class="text-gray-300">(11) 98765-4321</span>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Redes Sociais</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-600 transition duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-blue-400 flex items-center justify-center hover:bg-blue-500 transition duration-300">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-pink-600 flex items-center justify-center hover:bg-pink-700 transition duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-700 transition duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-blue-700 pt-8 text-center text-gray-300">
-                <p>© 2025 Controle Fácil. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
-            const nav = document.querySelector('nav');
-            nav.classList.toggle('hidden');
-            nav.classList.toggle('block');
-            nav.classList.toggle('absolute');
-            nav.classList.toggle('top-16');
-            nav.classList.toggle('right-6');
-            nav.classList.toggle('bg-[#1E3A8A]');
-            nav.classList.toggle('p-4');
-            nav.classList.toggle('rounded-lg');
-            nav.classList.toggle('shadow-lg');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Add fade-in effect when elements come into view
-        const fadeElements = document.querySelectorAll('.fade-in');
         
-        const fadeInObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100');
-                    fadeInObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
+        <!-- Feature 2 -->
+        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-all fade-in">
+          <div class="bg-[#10B981]/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1E3A8A] mb-2">Adicione Notas</h3>
+          <p class="text-gray-600">Inclua observações personalizadas para cada transação financeira.</p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-all fade-in">
+          <div class="bg-[#10B981]/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1E3A8A] mb-2">Relatórios Visuais</h3>
+          <p class="text-gray-600">Acompanhe seus gastos com gráficos e relatórios em tempo real.</p>
+        </div>
+        
+        <!-- Feature 4 -->
+        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-all fade-in">
+          <div class="bg-[#10B981]/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1E3A8A] mb-2">Simples e Seguro</h3>
+          <p class="text-gray-600">Interface intuitiva com criptografia de dados para sua segurança.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        fadeElements.forEach(element => {
-            element.classList.add('opacity-0', 'transition-opacity', 'duration-500');
-            fadeInObserver.observe(element);
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-20 px-6 bg-gray-50">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center text-[#1E3A8A] mb-16">Escolha seu plano ideal</h2>
+      
+      <div class="max-w-4xl mx-auto overflow-hidden rounded-lg shadow-md">
+        <table class="w-full">
+          <thead class="bg-[#1E3A8A] text-white">
+            <tr>
+              <th class="py-4 px-6 text-left font-medium">Funcionalidades</th>
+              <th class="py-4 px-6 text-center font-medium">Teste Grátis</th>
+              <th class="py-4 px-6 text-center font-medium bg-[#10B981]/20 border-2 border-[#10B981]">Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="py-4 px-6 border-b border-gray-100">Transações mensais</td>
+              <td class="py-4 px-6 border-b border-gray-100 text-center">Até 50</td>
+              <td class="py-4 px-6 border-b border-gray-100 text-center font-medium bg-[#10B981]/10">Ilimitadas</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="py-4 px-6 border-b border-gray-100">Comprovantes</td>
+              <td class="py-4 px-6 border-b border-gray-100 text-center">5 por mês</td>
+              <td class="py-4 px-6 border-b border-gray-100 text-center font-medium bg-[#10B981]/10">Ilimitados</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="py-4 px-6 border-b border-gray-100">Relatórios</td>
+              <td class="py-4 px-6 border-b border-gray-100 text-center">Básicos</td>
+              <td class="py-4 px-6 border-b border-gray-100 text-center font-medium bg-[#10B981]/10">Avançados</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="py-4 px-6 border-b border-gray-100">Exportação de dados</td>
+              <td class="py-4 px-6 border-b border-gray-100 text-center">-</td>
+              <td class="py-4 px-6 border-b border-gray-100 text-center font-medium bg-[#10B981]/10">CSV, Excel</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6"></td>
+              <td class="py-4 px-6 text-center">
+                <button class="bg-[#1E3A8A] hover:bg-[#142A63] text-white font-medium py-2 px-6 rounded-lg shadow hover:shadow-md transition-all">
+                  Teste Grátis
+                </button>
+              </td>
+              <td class="py-4 px-6 text-center bg-[#10B981]/10">
+                <button class="bg-[#10B981] hover:bg-[#0D9F6E] text-white font-medium py-2 px-6 rounded-lg shadow hover:shadow-md transition-all">
+                  Assinar Premium
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 px-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center text-[#1E3A8A] mb-16">O que nossos usuários dizem</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-gray-50 p-8 rounded-lg shadow-sm fade-in">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold text-[#1E3A8A]">João P.</h4>
+              <p class="text-gray-500 text-sm">30 anos</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"O OrçaFácil simplificou minha vida financeira! Agora consigo ver para onde vai cada centavo do meu salário."</p>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="bg-gray-50 p-8 rounded-lg shadow-sm fade-in">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold text-[#1E3A8A]">Ana L.</h4>
+              <p class="text-gray-500 text-sm">28 anos</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"Adoro poder anexar meus comprovantes diretamente no app. Nunca mais perdi um recibo importante!"</p>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="bg-gray-50 p-8 rounded-lg shadow-sm fade-in">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold text-[#1E3A8A]">Carlos R.</h4>
+              <p class="text-gray-500 text-sm">35 anos</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"Os relatórios visuais me ajudaram a identificar gastos desnecessários e economizar 20% do meu orçamento."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 px-6 bg-[#1E3A8A] text-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Pronto para transformar suas finanças?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Comece hoje mesmo e tenha total controle sobre seu dinheiro.</p>
+      <button class="bg-[#10B981] hover:bg-[#0D9F6E] text-white font-medium py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all">
+        Teste Grátis por 14 Dias
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#1E3A8A] text-white py-12 px-6">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">OrçaFácil</h3>
+          <p class="text-gray-300">O gestor financeiro pessoal mais simples e eficiente do mercado.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Sobre</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Termos de Uso</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Política de Privacidade</a></li>
+          </ul>
+        </div>
+        <div id="contact">
+          <h4 class="font-semibold mb-4">Contato</h4>
+          <ul class="space-y-2">
+            <li class="text-gray-300">contato@orcafacil.com</li>
+            <li class="text-gray-300">+55 (11) 98765-4321</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Redes Sociais</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="pt-6 border-t border-gray-700 text-center text-gray-300 text-sm">
+        © 2025 OrçaFácil. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple fade-in animation for elements when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
         });
-    </script>
+      }, { threshold: 0.1 });
+      
+      fadeElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
 </html>
