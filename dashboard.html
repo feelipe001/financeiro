@@ -9,6 +9,20 @@
     <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        .sidebar-hidden {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-visible {
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.content-expanded {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
         body {
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s ease;
@@ -592,5 +606,38 @@
             showToast();
         });
     </script>
+    <script>
+    const sidebar = document.querySelector('.sidebar');
+    const content = document.querySelector('.main-content'); 
+    const menuItems = document.querySelectorAll('.sidebar button'); 
+
+    // Criar botão hambúrguer
+    const toggleBtn = document.createElement('button');
+    toggleBtn.innerHTML = "☰";
+    toggleBtn.style.position = "fixed";
+    toggleBtn.style.top = "15px";
+    toggleBtn.style.left = "15px";
+    toggleBtn.style.zIndex = "1000";
+    toggleBtn.style.background = "#1E3A8A";
+    toggleBtn.style.color = "#fff";
+    toggleBtn.style.border = "none";
+    toggleBtn.style.padding = "10px 15px";
+    toggleBtn.style.borderRadius = "8px";
+    document.body.appendChild(toggleBtn);
+
+    // Abre/fecha a sidebar
+    toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('sidebar-hidden');
+        content.classList.toggle('content-expanded');
+    });
+
+    // Fecha sidebar ao clicar em qualquer item
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            sidebar.classList.add('sidebar-hidden');
+            content.classList.add('content-expanded');
+        });
+    });
+</script>
 </body>
 </html>
