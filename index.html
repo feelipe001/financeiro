@@ -4,291 +4,436 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OrçaFácil - Gestor de Finanças Pessoais</title>
+  <meta name="description" content="Gestor de finanças OrçaFácil: controle gastos, anexe comprovantes e acompanhe seu orçamento">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
     }
     .fade-in {
-      animation: fadeIn 0.8s ease-in-out;
+      animation: fadeIn 0.5s ease-in;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .mobile-menu {
+      transition: all 0.3s ease;
+    }
   </style>
 </head>
 <body class="bg-white">
-  <!-- Header -->
+  <!-- Header Component -->
   <header class="bg-[#1E3A8A] text-white fixed w-full z-50 shadow-md">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center">
-        <h1 class="text-2xl font-bold">OrçaFácil</h1>
-      </div>
-      <nav class="hidden md:block">
-        <ul class="flex space-x-8">
-          <li><a href="#" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition-all">Home</a></li>
-          <li><a href="#features" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition-all">Funcionalidades</a></li>
-          <li><a href="#pricing" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition-all">Preços</a></li>
-          <li><a href="#contact" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition-all">Contato</a></li>
-        </ul>
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold">OrçaFácil</div>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="#home" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition">Home</a>
+        <a href="#features" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition">Funcionalidades</a>
+        <a href="#pricing" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition">Preços</a>
+        <a href="#contact" class="hover:underline hover:underline-offset-4 hover:decoration-[#10B981] transition">Contato</a>
       </nav>
-      <button class="md:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
+    
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-[#1E3A8A] w-full px-4 pb-4">
+      <div class="flex flex-col space-y-3">
+        <a href="#home" class="hover:text-[#10B981] transition">Home</a>
+        <a href="#features" class="hover:text-[#10B981] transition">Funcionalidades</a>
+        <a href="#pricing" class="hover:text-[#10B981] transition">Preços</a>
+        <a href="#contact" class="hover:text-[#10B981] transition">Contato</a>
+      </div>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="pt-32 pb-20 px-6 bg-gradient-to-b from-[#1E3A8A]/10 to-white">
+  <!-- Hero Component -->
+  <section id="home" class="pt-32 pb-20 px-4 bg-gradient-to-b from-[#1E3A8A]/10 to-white">
     <div class="container mx-auto flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2 mb-12 md:mb-0 fade-in">
+      <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
         <h1 class="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-6">Organize suas finanças com o OrçaFácil!</h1>
-        <p class="text-lg text-gray-600 mb-8">Registre gastos, anexe comprovantes, adicione notas e acompanhe seu orçamento em tempo real.</p>
-        <button class="bg-[#10B981] hover:bg-[#0D9F6E] text-white font-medium py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all">
+        <p class="text-lg text-gray-600 mb-8">Registre gastos, anexe comprovantes, adicione notas e acompanhe seu orçamento.</p>
+        <button id="cta-button" class="bg-[#10B981] hover:bg-[#0e9e72] text-white font-medium py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
           Teste Grátis por 14 Dias
         </button>
       </div>
       <div class="md:w-1/2 fade-in">
-        <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="App illustration" class="w-full max-w-md mx-auto">
+        <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Ilustração de finanças no celular" class="w-full max-w-md mx-auto" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section id="features" class="py-20 px-6 bg-white">
+  <!-- Benefits Component -->
+  <section id="features" class="py-20 px-4 bg-white">
     <div class="container mx-auto">
       <h2 class="text-3xl font-bold text-center text-[#1E3A8A] mb-16">Por que usar o OrçaFácil?</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Feature 1 -->
-        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-all fade-in">
-          <div class="bg-[#10B981]/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+        <!-- Benefit 1 -->
+        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition duration-300 fade-in">
+          <div class="bg-[#10B981]/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#10B981]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-[#1E3A8A] mb-2">Anexe Comprovantes</h3>
-          <p class="text-gray-600">Faça upload de recibos em PDF, JPG ou PNG para organizar seus gastos.</p>
+          <p class="text-gray-600">Faça upload de recibos em PDF, JPG ou PNG e mantenha tudo organizado em um só lugar.</p>
         </div>
         
-        <!-- Feature 2 -->
-        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-all fade-in">
-          <div class="bg-[#10B981]/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        <!-- Benefit 2 -->
+        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition duration-300 fade-in">
+          <div class="bg-[#10B981]/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#10B981]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-[#1E3A8A] mb-2">Adicione Notas</h3>
-          <p class="text-gray-600">Inclua observações personalizadas para cada transação financeira.</p>
+          <p class="text-gray-600">Inclua observações personalizadas para cada gasto e nunca mais esqueça detalhes importantes.</p>
         </div>
         
-        <!-- Feature 3 -->
-        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-all fade-in">
-          <div class="bg-[#10B981]/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        <!-- Benefit 3 -->
+        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition duration-300 fade-in">
+          <div class="bg-[#10B981]/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#10B981]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-[#1E3A8A] mb-2">Relatórios Visuais</h3>
-          <p class="text-gray-600">Acompanhe seus gastos com gráficos e relatórios em tempo real.</p>
+          <p class="text-gray-600">Acompanhe seus gastos com gráficos intuitivos e relatórios detalhados em tempo real.</p>
         </div>
         
-        <!-- Feature 4 -->
-        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-all fade-in">
-          <div class="bg-[#10B981]/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        <!-- Benefit 4 -->
+        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition duration-300 fade-in">
+          <div class="bg-[#10B981]/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#10B981]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-[#1E3A8A] mb-2">Simples e Seguro</h3>
-          <p class="text-gray-600">Interface intuitiva com criptografia de dados para sua segurança.</p>
+          <p class="text-gray-600">Interface intuitiva com criptografia de dados para proteger suas informações financeiras.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Section -->
-  <section id="pricing" class="py-20 px-6 bg-gray-50">
+  <!-- Pricing Component -->
+  <section id="pricing" class="py-20 px-4 bg-gray-50">
     <div class="container mx-auto">
       <h2 class="text-3xl font-bold text-center text-[#1E3A8A] mb-16">Escolha seu plano ideal</h2>
       
-      <div class="max-w-4xl mx-auto overflow-hidden rounded-lg shadow-md">
-        <table class="w-full">
-          <thead class="bg-[#1E3A8A] text-white">
-            <tr>
-              <th class="py-4 px-6 text-left font-medium">Funcionalidades</th>
-              <th class="py-4 px-6 text-center font-medium">Teste Grátis</th>
-              <th class="py-4 px-6 text-center font-medium bg-[#10B981]/20 border-2 border-[#10B981]">Premium</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="bg-white">
-              <td class="py-4 px-6 border-b border-gray-100">Transações mensais</td>
-              <td class="py-4 px-6 border-b border-gray-100 text-center">Até 50</td>
-              <td class="py-4 px-6 border-b border-gray-100 text-center font-medium bg-[#10B981]/10">Ilimitadas</td>
-            </tr>
-            <tr class="bg-gray-50">
-              <td class="py-4 px-6 border-b border-gray-100">Comprovantes</td>
-              <td class="py-4 px-6 border-b border-gray-100 text-center">5 por mês</td>
-              <td class="py-4 px-6 border-b border-gray-100 text-center font-medium bg-[#10B981]/10">Ilimitados</td>
-            </tr>
-            <tr class="bg-white">
-              <td class="py-4 px-6 border-b border-gray-100">Relatórios</td>
-              <td class="py-4 px-6 border-b border-gray-100 text-center">Básicos</td>
-              <td class="py-4 px-6 border-b border-gray-100 text-center font-medium bg-[#10B981]/10">Avançados</td>
-            </tr>
-            <tr class="bg-gray-50">
-              <td class="py-4 px-6 border-b border-gray-100">Exportação de dados</td>
-              <td class="py-4 px-6 border-b border-gray-100 text-center">-</td>
-              <td class="py-4 px-6 border-b border-gray-100 text-center font-medium bg-[#10B981]/10">CSV, Excel</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6"></td>
-              <td class="py-4 px-6 text-center">
-                <button class="bg-[#1E3A8A] hover:bg-[#142A63] text-white font-medium py-2 px-6 rounded-lg shadow hover:shadow-md transition-all">
-                  Teste Grátis
-                </button>
-              </td>
-              <td class="py-4 px-6 text-center bg-[#10B981]/10">
-                <button class="bg-[#10B981] hover:bg-[#0D9F6E] text-white font-medium py-2 px-6 rounded-lg shadow hover:shadow-md transition-all">
-                  Assinar Premium
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Free Plan -->
+        <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm">
+          <h3 class="text-2xl font-semibold text-[#1E3A8A] mb-4">Teste Grátis</h3>
+          <p class="text-4xl font-bold text-gray-800 mb-6">R$ 0<span class="text-lg font-normal text-gray-500">/mês</span></p>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-[#10B981] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              14 dias gratuitos
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-[#10B981] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Até 50 transações
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-[#10B981] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              5 comprovantes/mês
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-[#10B981] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Relatórios simples
+            </li>
+          </ul>
+          
+          <button class="w-full bg-[#1E3A8A] hover:bg-[#142a66] text-white font-medium py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+            Teste Grátis
+          </button>
+        </div>
+        
+        <!-- Premium Plan -->
+        <div class="bg-white p-8 rounded-lg border-2 border-[#10B981] shadow-sm relative">
+          <div class="absolute top-0 right-0 bg-[#10B981] text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+            RECOMENDADO
+          </div>
+          
+          <h3 class="text-2xl font-semibold text-[#1E3A8A] mb-4">Premium</h3>
+          <p class="text-4xl font-bold text-gray-800 mb-6">R$ 19,90<span class="text-lg font-normal text-gray-500">/mês</span></p>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-[#10B981] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Transações ilimitadas
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-[#10B981] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Comprovantes ilimitados
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-[#10B981] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Relatórios avançados
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-[#10B981] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Exportação de dados
+            </li>
+          </ul>
+          
+          <button class="w-full bg-[#10B981] hover:bg-[#0e9e72] text-white font-medium py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+            Assinar Premium
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="py-20 px-6 bg-white">
+  <!-- Testimonials Component -->
+  <section class="py-20 px-4 bg-white">
     <div class="container mx-auto">
       <h2 class="text-3xl font-bold text-center text-[#1E3A8A] mb-16">O que nossos usuários dizem</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Testimonial 1 -->
-        <div class="bg-gray-50 p-8 rounded-lg shadow-sm fade-in">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm fade-in">
           <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+            <div class="w-12 h-12 rounded-full bg-[#1E3A8A] flex items-center justify-center text-white font-bold mr-4">JP</div>
             <div>
-              <h4 class="font-semibold text-[#1E3A8A]">João P.</h4>
-              <p class="text-gray-500 text-sm">30 anos</p>
+              <p class="font-semibold">João P.</p>
+              <p class="text-sm text-gray-500">30 anos</p>
             </div>
           </div>
-          <p class="text-gray-600 italic">"O OrçaFácil simplificou minha vida financeira! Agora consigo ver para onde vai cada centavo do meu salário."</p>
+          <p class="text-gray-700 italic">"O OrçaFácil simplificou minha vida financeira! Agora consigo ver para onde vai cada centavo e planejar melhor meus gastos."</p>
         </div>
         
         <!-- Testimonial 2 -->
-        <div class="bg-gray-50 p-8 rounded-lg shadow-sm fade-in">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm fade-in">
           <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+            <div class="w-12 h-12 rounded-full bg-[#1E3A8A] flex items-center justify-center text-white font-bold mr-4">AM</div>
             <div>
-              <h4 class="font-semibold text-[#1E3A8A]">Ana L.</h4>
-              <p class="text-gray-500 text-sm">28 anos</p>
+              <p class="font-semibold">Ana M.</p>
+              <p class="text-sm text-gray-500">28 anos</p>
             </div>
           </div>
-          <p class="text-gray-600 italic">"Adoro poder anexar meus comprovantes diretamente no app. Nunca mais perdi um recibo importante!"</p>
+          <p class="text-gray-700 italic">"Adoro poder anexar meus comprovantes diretamente no app. Nunca mais perdi um recibo importante e consigo encontrar tudo facilmente."</p>
         </div>
         
         <!-- Testimonial 3 -->
-        <div class="bg-gray-50 p-8 rounded-lg shadow-sm fade-in">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm fade-in">
           <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+            <div class="w-12 h-12 rounded-full bg-[#1E3A8A] flex items-center justify-center text-white font-bold mr-4">CS</div>
             <div>
-              <h4 class="font-semibold text-[#1E3A8A]">Carlos R.</h4>
-              <p class="text-gray-500 text-sm">35 anos</p>
+              <p class="font-semibold">Carlos S.</p>
+              <p class="text-sm text-gray-500">35 anos</p>
             </div>
           </div>
-          <p class="text-gray-600 italic">"Os relatórios visuais me ajudaram a identificar gastos desnecessários e economizar 20% do meu orçamento."</p>
+          <p class="text-gray-700 italic">"Os relatórios visuais me ajudaram a identificar gastos desnecessários. Em 3 meses já economizei 15% do meu orçamento!"</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-16 px-6 bg-[#1E3A8A] text-white">
+  <section class="py-16 px-4 bg-[#1E3A8A] text-white">
     <div class="container mx-auto text-center">
       <h2 class="text-3xl font-bold mb-6">Pronto para transformar suas finanças?</h2>
       <p class="text-xl mb-8 max-w-2xl mx-auto">Comece hoje mesmo e tenha total controle sobre seu dinheiro.</p>
-      <button class="bg-[#10B981] hover:bg-[#0D9F6E] text-white font-medium py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all">
+      <button class="bg-[#10B981] hover:bg-[#0e9e72] text-white font-medium py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
         Teste Grátis por 14 Dias
       </button>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-[#1E3A8A] text-white py-12 px-6">
+  <!-- Footer Component -->
+  <footer id="contact" class="bg-[#1E3A8A] text-white py-12 px-4">
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div>
           <h3 class="text-xl font-bold mb-4">OrçaFácil</h3>
-          <p class="text-gray-300">O gestor financeiro pessoal mais simples e eficiente do mercado.</p>
+          <p class="text-gray-300">O gestor de finanças pessoais que simplifica sua vida.</p>
         </div>
+        
         <div>
           <h4 class="font-semibold mb-4">Links</h4>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Sobre</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Termos de Uso</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Política de Privacidade</a></li>
+            <li><a href="#home" class="text-gray-300 hover:text-white transition">Home</a></li>
+            <li><a href="#features" class="text-gray-300 hover:text-white transition">Funcionalidades</a></li>
+            <li><a href="#pricing" class="text-gray-300 hover:text-white transition">Preços</a></li>
+            <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contato</a></li>
           </ul>
         </div>
-        <div id="contact">
-          <h4 class="font-semibold mb-4">Contato</h4>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Legal</h4>
           <ul class="space-y-2">
-            <li class="text-gray-300">contato@orcafacil.com</li>
-            <li class="text-gray-300">+55 (11) 98765-4321</li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Termos de Uso</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Política de Privacidade</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Cookies</a></li>
           </ul>
         </div>
+        
         <div>
           <h4 class="font-semibold mb-4">Redes Sociais</h4>
           <div class="flex space-x-4">
-            <a href="#" class="text-gray-300 hover:text-white transition-colors">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-300 hover:text-white transition-colors">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-300 hover:text-white transition-colors">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <a href="#" class="text-gray-300 hover:text-white transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
               </svg>
             </a>
           </div>
         </div>
       </div>
-      <div class="pt-6 border-t border-gray-700 text-center text-gray-300 text-sm">
+      
+      <div class="pt-8 border-t border-gray-700 text-center text-gray-300 text-sm">
         © 2025 OrçaFácil. Todos os direitos reservados.
       </div>
     </div>
   </footer>
 
+  <!-- Signup Modal -->
+  <div id="signup-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold text-[#1E3A8A]">Teste Grátis</h3>
+        <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <form id="signup-form" class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+          <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#1E3A8A] focus:border-[#1E3A8A]">
+        </div>
+        
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+          <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#1E3A8A] focus:border-[#1E3A8A]">
+        </div>
+        
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Senha</label>
+          <input type="password" id="password" name="password" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#1E3A8A] focus:border-[#1E3A8A]">
+        </div>
+        
+        <button type="submit" class="w-full bg-[#10B981] hover:bg-[#0e9e72] text-white font-medium py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+          Criar Conta
+        </button>
+      </form>
+    </div>
+  </div>
+
   <script>
-    // Simple fade-in animation for elements when they come into view
-    document.addEventListener('DOMContentLoaded', function() {
-      const fadeElements = document.querySelectorAll('.fade-in');
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Modal handling
+    const ctaButton = document.getElementById('cta-button');
+    const signupModal = document.getElementById('signup-modal');
+    const closeModal = document.getElementById('close-modal');
+    
+    ctaButton.addEventListener('click', () => {
+      signupModal.classList.remove('hidden');
+    });
+    
+    closeModal.addEventListener('click', () => {
+      signupModal.classList.add('hidden');
+    });
+    
+    // Form submission
+    const signupForm = document.getElementById('signup-form');
+    
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
       
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      // In a real app, you would send this data to your backend
+      console.log('Form submitted:', { name, email, password });
+      
+      // Show success message
+      alert('Conta criada com sucesso! Você agora tem 14 dias gratuitos para testar o OrçaFácil.');
+      
+      // Close modal
+      signupModal.classList.add('hidden');
+      
+      // Reset form
+      signupForm.reset();
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+      if (e.target === signupModal) {
+        signupModal.classList.add('hidden');
+      }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
           }
-        });
-      }, { threshold: 0.1 });
-      
-      fadeElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        observer.observe(el);
+        }
       });
     });
   </script>
